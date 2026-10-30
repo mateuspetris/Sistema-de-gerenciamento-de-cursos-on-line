@@ -4,16 +4,19 @@ import java.sql.*;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 public final class Db {
-    private Db() { }
+    private Db() {
+
+    }
     public static Connection conectar() throws SQLException {
-        String url = System.getenv().getOrDefault("DB_URL",
-                "jdbc:oracle:thin:@//localhost:1521/XEPDB1");
-        String user = System.getenv().getOrDefault("DB_USER", "system");
+        String url = System.getenv().getOrDefault("DB_URL", "jdbc:oracle:thin:@//localhost:1521/FREEPDB1");
+        String user = System.getenv().getOrDefault("DB_USER", "curso");
         String pass = System.getenv().getOrDefault("DB_PASS", "oracle");
         return DriverManager.getConnection(url, user, pass);
     }
-public static void transacao(String... comandos) throws SQLException {
+
+    public static void transacao(String... comandos) throws SQLException {
     try (Connection c = conectar()) {
         c.setAutoCommit(false);
         try (Statement st = c.createStatement()) {
@@ -40,10 +43,11 @@ public static void transacao(String... comandos) throws SQLException {
     public static int proximoId(String sequence) throws SQLException {
         return contar("SELECT " + sequence + ".NEXTVAL FROM dual");
     }
-    // ---- formatação de valores para concatenar no SQL ----
+
     public static String str(String s) { return "'" + s.replace("'",
             "''") + "'"; }
     public static String num(BigDecimal n) { return n.toPlainString(); }
+
     public static String data(LocalDate d) { return "TO_DATE('" + d + "', 'YYYY-MM-DD')"; }
 
         public static void imprimir(String sql) throws SQLException {
@@ -78,6 +82,7 @@ public static void transacao(String... comandos) throws SQLException {
                 for (String[] l : linhas) imprimirLinha(l, larg);
             }
         }
+
         private static void imprimirLinha(String[] v, int[] larg) {
             StringBuilder sb = new StringBuilder(" ");
             for (int i = 0; i < v.length; i++) {

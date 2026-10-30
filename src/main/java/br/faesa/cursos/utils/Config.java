@@ -2,8 +2,8 @@ package br.faesa.cursos.utils;
 public final class Config {
     private Config() { }
     public static final String[] INTEGRANTES = {
-            "INTEGRANTE 1", "INTEGRANTE 2", "INTEGRANTE 3", "INTEGRANTE 4",
-            "INTEGRANTE 5"
+            "João Vitor de Jesus Rocha", "Lucas de Freitas Pereira", "Beatriz de Souza Oliveira", "Thainara Santos de Souza",
+            "Letícia Ventura Brandão", "Mateus de Souza Petris"
     };
     public static final String[] MENU_PRINCIPAL = {
             "Relatórios", "Inserir registros", "Remover registros", "Atualizar registros","Sair"

@@ -1,7 +1,6 @@
 package br.faesa.cursos.utils;
 public final class Menu {
     private Menu() { }
-    /** Exibe o menu e devolve a opção escolhida (de 1 até opcoes.length). */
     public static int exibir(String titulo, String[] opcoes) {
         System.out.println();
         System.out.println("=== " + titulo + " ===");
