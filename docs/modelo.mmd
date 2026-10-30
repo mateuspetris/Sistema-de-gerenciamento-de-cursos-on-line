@@ -1,0 +1,23 @@
+erDiagram
+    ALUNOS ||--o{ INSCRICOES : "realiza"
+    CURSOS ||--o{ INSCRICOES : "recebe"
+    ALUNOS {
+        NUMBER id_aluno PK
+        VARCHAR2 nome "NOT NULL"
+        VARCHAR2 email "NOT NULL, UNIQUE"
+        DATE data_nascimento "NOT NULL"
+    }
+    CURSOS {
+        NUMBER id_curso PK
+        VARCHAR2 nome "NOT NULL"
+        VARCHAR2 categoria "NOT NULL"
+        NUMBER carga_horaria "NOT NULL, > 0"
+        NUMBER valor "NOT NULL, >= 0"
+    }
+    INSCRICOES {
+        NUMBER id_inscricao PK
+        NUMBER id_aluno FK "NOT NULL"
+        NUMBER id_curso FK "NOT NULL"
+        DATE data_inscricao "NOT NULL"
+        NUMBER progresso "NOT NULL, 0 a 100"
+    }
