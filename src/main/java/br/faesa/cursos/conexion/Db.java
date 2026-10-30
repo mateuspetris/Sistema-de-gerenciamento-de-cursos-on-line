@@ -13,8 +13,6 @@ public final class Db {
         String pass = System.getenv().getOrDefault("DB_PASS", "oracle");
         return DriverManager.getConnection(url, user, pass);
     }
-/** Executa um ou mais comandos (INSERT/UPDATE/DELETE) na mesma
- transação. */
 public static void transacao(String... comandos) throws SQLException {
     try (Connection c = conectar()) {
         c.setAutoCommit(false);
@@ -32,8 +30,7 @@ public static void transacao(String... comandos) throws SQLException {
     public static void executar(String sql) throws SQLException {
         transacao(sql);
     }
-    /** Executa uma consulta e devolve o inteiro da primeira coluna da
-     primeira linha. */
+
     public static int contar(String sql) throws SQLException {
         try (Connection c = conectar(); Statement st = c.createStatement();
              ResultSet rs = st.executeQuery(sql)) {
@@ -47,10 +44,8 @@ public static void transacao(String... comandos) throws SQLException {
     public static String str(String s) { return "'" + s.replace("'",
             "''") + "'"; }
     public static String num(BigDecimal n) { return n.toPlainString(); }
-    public static String data(LocalDate d) { return "TO_DATE('" + d + "',
-        'YYYY-MM-DD')"; }
-/** Executa uma consulta e imprime o resultado em formato de tabela no
- console. */
+    public static String data(LocalDate d) { return "TO_DATE('" + d + "', 'YYYY-MM-DD')"; }
+
         public static void imprimir(String sql) throws SQLException {
             try (Connection c = conectar(); Statement st = c.createStatement();
                  ResultSet rs = st.executeQuery(sql)) {
