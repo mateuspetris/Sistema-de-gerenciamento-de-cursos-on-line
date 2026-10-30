@@ -7,8 +7,7 @@ public final class SplashScreen {
     public static void exibir() throws SQLException {
         int cursos = Db.contar("SELECT COUNT(1) total_cursos FROM cursos");
         int alunos = Db.contar("SELECT COUNT(1) total_alunos FROM alunos");
-        int inscricoes = Db.contar("SELECT COUNT(1) total_inscricoes FROM
-                inscricoes");
+        int inscricoes = Db.contar("SELECT COUNT(1) total_inscricoes FROM inscricoes");
                 System.out.println("#".repeat(L + 4));
         linha("");
         linha(centro("PLATAFORMA DE CURSOS ONLINE"));

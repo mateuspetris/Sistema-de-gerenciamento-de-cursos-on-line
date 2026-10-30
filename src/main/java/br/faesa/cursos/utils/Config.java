@@ -6,8 +6,7 @@ public final class Config {
             "INTEGRANTE 5"
     };
     public static final String[] MENU_PRINCIPAL = {
-            "Relatórios", "Inserir registros", "Remover registros", "Atualizar
-            registros", "Sair"
+            "Relatórios", "Inserir registros", "Remover registros", "Atualizar registros","Sair"
     };
     public static final String[] MENU_RELATORIOS = {
             "Inscrições e receita por curso (agrupamento)",

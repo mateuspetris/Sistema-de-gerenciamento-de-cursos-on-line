@@ -8,8 +8,7 @@ import java.util.Scanner;
 public final class Entrada {
     private static final Scanner IN = new Scanner(System.in);
     private static final DateTimeFormatter FMT =
-            DateTimeFormatter.ofPattern("dd/MM/uuuu").withResolverStyle(ResolverStyle.STR
-                    ICT);
+            DateTimeFormatter.ofPattern("dd/MM/uuuu").withResolverStyle(ResolverStyle.STRICT);
     private Entrada() { }
     public static String texto(String msg) {
         while (true) {
@@ -33,8 +32,7 @@ public final class Entrada {
             try {
                 return new BigDecimal(texto(msg).replace(',', '.'));
             } catch (NumberFormatException e) {
-                System.out.println(" Digite um valor numérico (ex.:
-                        199,90).");
+                System.out.println(" Digite um valor numérico (ex.: 199,90).");
             }
         }
     }
